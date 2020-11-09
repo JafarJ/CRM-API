@@ -57,16 +57,16 @@ To use and test this CRM we will be using an API development environment, in thi
                  "role":"admin"
              }
           ```
-      - Now your new user is an admin. Let´s delete the seeded admin now. 
-      - First URL/logout and URL/login with the new credentials.
-      - Change the request to Post and YourLocalURL/users/destroy
-      - In Body send as raw the following json:
+     - Now your new user is an admin. Let´s delete the seeded admin now. 
+     - First URL/logout and URL/login with the new credentials.
+     - Change the request to Post and YourLocalURL/users/destroy
+     - In Body send as raw the following json:
           ```
              {
                  "id":"1"
              }
           ```
-      - Done! You are logged in your new admin and the original one is gone!
+     - Done! You are logged in your new admin and the original one is gone!
 
 ## Contributing
 
