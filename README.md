@@ -1,12 +1,7 @@
-<h1 style="margin:auto"><b>SIMPLE CRM API</b></h1>
+<h1 align="center"><b>SIMPLE CRM API</b></h1>
 
-# Laravel 8.9 Social media site [Visit!](http://18.191.134.123/)
-Hey! I´m Jafar Jabbarzadeh, a wannabe software engineer from Las Palmas de Gran Canaria! https://www.linkedin.com/in/jafarjabbarzadeh/ And this is a Laravel 8.9 based Instagram clone, complete with accounts, posts, likes, follows, main and explore page, and more! 
-
-## About Instantgram
-Instantgram is a Instagram clone purely made for educational purposes, meant to mostly work and look like the official Facebook daughter app. 
-Build with Laravel and node for backend and Bootstrap for front-end. 
-Under deployment is information about that and the link to visit the deployed version where you can create your account and start posting things, if you do please follow me on there, it´s /profile/1, or JafarJ, that way I can be number one social media person on at least one site. 
+## Laravel 8.9 CRM API
+Hey! I´m Jafar Jabbarzadeh, a wannabe software engineer from Las Palmas de Gran Canaria! https://www.linkedin.com/in/jafarjabbarzadeh/ And this is a Laravel 8.9 based CRM API ment to be used via an API development environment, including user roles and prospects management.
 
 ## Installation
 If you want to clone this on your local machine let me help you with the set-up.
@@ -21,16 +16,55 @@ If you want to clone this on your local machine let me help you with the set-up.
 * [STEP-8. In the .env file, add database information to allow Laravel to connect to the database] In the .env file fill in the DB_HOST, DB_PORT, DB_DATABASE, DB_USERNAME, and DB_PASSWORD options to match the credentials of the database you just created.
 * [STEP-9. Migrate the database.] Once your credentials are in the .env file, now you can migrate your database. Type [php artisan migrate].
 * [STEP-10. Remove and re-link storage folder.] Not always needed but typing [rmdir public\storage] and then [php artisan storage:link] can solve permission issues for the app to use the storage folder.
+* [STEP-11. Seed the database.] Users can only be created by an authorized admin, so seeding your db will create your initial one, once your in, create another oficial one, login in to the new one and delete the seeded admin [php artisan db:seed]
 
-And that´s it! Your very own Local Social media site is ready! To run it you can use laravel´s own local server [php artisan serve] or any server of your choice. Thanks for downloading! Let me know any feedback or possible issues you might have!
+To run it you can use laravel´s own local server [php artisan serve] or any server of your choice. Thanks for downloading! Let me know any feedback or possible issues you might have!
 
-## Deployment
+## Testing via API development environment
+To use and test this CRM we will be using an API development environment, in this case [Postman](https://www.postman.com/)
 
-If you want to test it out visit http://18.191.134.123/, sorry for the lack of a domain, and create your user, make posts, follow and like other users, and whatever you might want! The project is deployed on an AWS free tier ubuntu server so don´t expect lightning speeds lol. 
+* Once your project is installed, seeded and ready you´ll need to login to be able to do anything. Seeded admin credential are "Email" = "admin@gmail.com" and "Password" = "password".
+* Once logged in you´ll have access to:
+    ONLY ACCESIBLE TO ADMIN
+    - /users to view all users.
+    - /users/store to create a new user
+    - /users/update to edit an existing user
+    - /users/destroy to delete and existing user
+    ACCESIBLE TO ALL
+    - /prospects to view all prospects.
+    - /prospects/store to create a new prospect
+    - /prospects/update to edit an existing prospect
+    - /prospects/destroy to delete and existing prospect
+* Let´s for example create a new admin with our seeded admin:
+    - To receive JSON responses add in Headers *Accept = application/json* and *Content-type = application/json*
+    - Change the request to Post and YourLocalURL/users/store
+    - In Body send as raw the following json:
+        {
+            "name":"NewAdmin",
+            "email":"newadmin@gmail.com",
+            "password":"actuallysecurepassword"
+        }
+     - And you have created a new user, now let´s change his status to Admin. Change the request to Post and YourLocalURL/users/update
+     - In Body send as raw the following json:
+        {
+            "id":"2",
+            "name":"NewAdmin",
+            "email":"newadmin@gmail.com",
+            "password":"actuallysecurepassword",
+            "role":"admin"
+        }
+      - Now your new user is an admin. Let´s delete the seeded admin now. 
+      - First URL/logout and URL/login with the new credentials.
+      - Change the request to Post and YourLocalURL/users/destroy
+      - In Body send as raw the following json:
+        {
+            "id":"1"
+        }
+      - Done! You are logged in your new admin and the original one is gone!
 
 ## Contributing
 
-Make account and post, would like to see it handle larger amounts of users at the same time, probably poorly but still. 
+Leave feedback! That´s enough!
 
 ## Security Vulnerabilities
 
@@ -60,7 +94,6 @@ This project is open-sourced software licensed under the [MIT license](https://o
 
 ## Acknowledgments
 
-* [FreeCodeCamp](https://www.youtube.com/channel/UC8butISFwT-Wl7EV0hUK0BQ) for the amazing courses
 * Thanks Stack Overflow
 * Coffee
 * Education?
