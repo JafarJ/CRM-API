@@ -24,17 +24,19 @@ To run it you can use laravel´s own local server [php artisan serve] or any ser
 To use and test this CRM we will be using an API development environment, in this case [Postman](https://www.postman.com/)
 
 * Once your project is installed, seeded and ready you´ll need to login to be able to do anything. Seeded admin credential are "Email" = "admin@gmail.com" and "Password" = "password".
+
 * Once logged in you´ll have access to:
-    ONLY ACCESIBLE TO ADMIN
+     ###### ONLY ACCESIBLE TO ADMIN
     - /users to view all users.
     - /users/store to create a new user
     - /users/update to edit an existing user
     - /users/destroy to delete and existing user
-    ACCESIBLE TO ALL
+    ###### ACCESIBLE TO ALL
     - /prospects to view all prospects.
     - /prospects/store to create a new prospect
     - /prospects/update to edit an existing prospect
     - /prospects/destroy to delete and existing prospect
+   
 * Let´s for example create a new admin with our seeded admin:
     - To receive JSON responses add in Headers *Accept = application/json* and *Content-type = application/json*
     - Change the request to Post and YourLocalURL/users/store
