@@ -70,6 +70,10 @@ To use and test this CRM we will be using an API development environment, in thi
           ```
      - Done! You are logged in your new admin and the original one is gone!
 
+## Turn this into a Web based CRM
+
+If you are interested in turning this into an actual Web based CRM, everything is already prepared for it, you just need to develop the existing blade files or create more including it´s routing if you wish to expand on this. As we already saw, all the request are done and just need a form to use them.
+
 ## Contributing
 
 Leave feedback! That´s enough!
