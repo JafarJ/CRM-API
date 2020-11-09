@@ -39,27 +39,33 @@ To use and test this CRM we will be using an API development environment, in thi
     - To receive JSON responses add in Headers *Accept = application/json* and *Content-type = application/json*
     - Change the request to Post and YourLocalURL/users/store
     - In Body send as raw the following json:
-        {
-            "name":"NewAdmin",
-            "email":"newadmin@gmail.com",
-            "password":"actuallysecurepassword"
-        }
+        ```
+            {
+                "name":"NewAdmin",
+                "email":"newadmin@gmail.com",
+                "password":"actuallysecurepassword"
+            }
+         ```
      - And you have created a new user, now let´s change his status to Admin. Change the request to Post and YourLocalURL/users/update
      - In Body send as raw the following json:
-        {
-            "id":"2",
-            "name":"NewAdmin",
-            "email":"newadmin@gmail.com",
-            "password":"actuallysecurepassword",
-            "role":"admin"
-        }
+         ``` 
+            {
+                 "id":"2",
+                 "name":"NewAdmin",
+                 "email":"newadmin@gmail.com",
+                 "password":"actuallysecurepassword",
+                 "role":"admin"
+             }
+          ```
       - Now your new user is an admin. Let´s delete the seeded admin now. 
       - First URL/logout and URL/login with the new credentials.
       - Change the request to Post and YourLocalURL/users/destroy
       - In Body send as raw the following json:
-        {
-            "id":"1"
-        }
+          ```
+             {
+                 "id":"1"
+             }
+          ```
       - Done! You are logged in your new admin and the original one is gone!
 
 ## Contributing
